@@ -15,24 +15,46 @@ const promise2 = new Promise((resolve, reject) => {
   }, 3000);
 });
 
-promise1.then((message) => {
-  // eslint-disable-next-line no-console
-  console.log(message);
+promise1
+  .then((message) => {
+    // eslint-disable-next-line no-console
+    console.log(message);
 
-  const div = document.createElement('div');
+    const div = document.createElement('div');
 
-  div.className = 'message';
-  div.textContent = 'Promise was resolved!';
-  document.body.appendChild(div);
-});
+    div.className = 'message';
+    div.textContent = 'Promise was resolved!';
+    document.body.appendChild(div);
+  })
+  .catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error(error);
 
-promise2.catch((error) => {
-  // eslint-disable-next-line no-console
-  console.error(error);
+    const div = document.createElement('div');
 
-  const div = document.createElement('div');
+    div.className = 'message error-message';
+    div.textContent = 'Promise was rejected';
+    document.body.appendChild(div);
+  });
 
-  div.className = 'message error-message';
-  div.textContent = 'Promise was rejected!';
-  document.body.appendChild(div);
-});
+promise2
+  .then((message) => {
+    // eslint-disable-next-line no-console
+    console.error(message);
+
+    const div = document.createElement('div');
+
+    div.className = 'message';
+    div.textContent = 'Promise was resolved!';
+    document.body.appendChild(div);
+  })
+  .catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error(error);
+
+    const div = document.createElement('div');
+
+    div.className = 'message error-message';
+    div.textContent = 'Promise was rejected!';
+    document.body.appendChild(div);
+  });
