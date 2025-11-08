@@ -33,7 +33,7 @@ promise1
     const div = document.createElement('div');
 
     div.className = 'message error-message';
-    div.textContent = 'Promise was rejected';
+    div.textContent = 'Promise was rejected!';
     document.body.appendChild(div);
   });
 
